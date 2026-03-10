@@ -85,6 +85,7 @@ namespace launcherMC
             {
                 comboBox1.Items.Add(version.Name);
             }
+            comboBox1.SelectedIndex = 0;
         }
         //load
         private async void anaMenu_Load(object sender, EventArgs e)
@@ -92,5 +93,7 @@ namespace launcherMC
             loadVersions();
             Console.WriteLine(launcherSettings.USERNAME);
         }
+
+        
     }
 }
