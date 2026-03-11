@@ -29,25 +29,23 @@
         private void InitializeComponent()
         {
             this.topPanel = new System.Windows.Forms.Panel();
-            this.minimizeBtn = new ReaLTaiizor.Controls.Button();
-            this.exitBtn = new ReaLTaiizor.Controls.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new ReaLTaiizor.Controls.SpaceButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.thunderCheckBox1 = new ReaLTaiizor.Controls.ThunderCheckBox();
             this.dungeonHeaderLabel1 = new ReaLTaiizor.Controls.DungeonHeaderLabel();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.thunderCheckBox1 = new ReaLTaiizor.Controls.ThunderCheckBox();
+            this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
+            this.loginBtn = new ReaLTaiizor.Controls.LostButton();
             this.topPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(59)))), ((int)(((byte)(120)))));
+            this.topPanel.Controls.Add(this.nightControlBox1);
             this.topPanel.Controls.Add(this.logo);
-            this.topPanel.Controls.Add(this.minimizeBtn);
-            this.topPanel.Controls.Add(this.exitBtn);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -55,64 +53,6 @@
             this.topPanel.Size = new System.Drawing.Size(784, 30);
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
-            // 
-            // minimizeBtn
-            // 
-            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.BorderColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.EnteredBorderColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.minimizeBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.Image = null;
-            this.minimizeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.minimizeBtn.InactiveColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.Location = new System.Drawing.Point(724, 0);
-            this.minimizeBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.minimizeBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.minimizeBtn.Size = new System.Drawing.Size(30, 30);
-            this.minimizeBtn.TabIndex = 2;
-            this.minimizeBtn.Text = "-";
-            this.minimizeBtn.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.minimizeBtn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // exitBtn
-            // 
-            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.exitBtn.BorderColor = System.Drawing.Color.Transparent;
-            this.exitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitBtn.EnteredBorderColor = System.Drawing.Color.Transparent;
-            this.exitBtn.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.exitBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitBtn.Image = null;
-            this.exitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitBtn.InactiveColor = System.Drawing.Color.Transparent;
-            this.exitBtn.Location = new System.Drawing.Point(754, 0);
-            this.exitBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.exitBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.exitBtn.Size = new System.Drawing.Size(30, 30);
-            this.exitBtn.TabIndex = 1;
-            this.exitBtn.Text = "X";
-            this.exitBtn.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(59)))), ((int)(((byte)(120)))));
-            this.panel1.Controls.Add(this.thunderCheckBox1);
-            this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.dungeonHeaderLabel1);
-            this.panel1.Controls.Add(this.txtUsername);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 581);
-            this.panel1.TabIndex = 1;
             // 
             // logo
             // 
@@ -126,21 +66,31 @@
             this.logo.TabIndex = 3;
             this.logo.TabStop = false;
             // 
-            // btnLogin
+            // panel1
             // 
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Customization = "Kioq/zIyMv8yMjL/Kioq/y8vL/8nJyf//v7+/yMjI/8qKir/";
-            this.btnLogin.Font = new System.Drawing.Font("Verdana", 8F);
-            this.btnLogin.Image = null;
-            this.btnLogin.Location = new System.Drawing.Point(12, 529);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.NoRounding = false;
-            this.btnLogin.Size = new System.Drawing.Size(170, 40);
-            this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnLogin.Transparent = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(59)))), ((int)(((byte)(120)))));
+            this.panel1.Controls.Add(this.loginBtn);
+            this.panel1.Controls.Add(this.thunderCheckBox1);
+            this.panel1.Controls.Add(this.dungeonHeaderLabel1);
+            this.panel1.Controls.Add(this.txtUsername);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 581);
+            this.panel1.TabIndex = 1;
+            // 
+            // thunderCheckBox1
+            // 
+            this.thunderCheckBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(59)))), ((int)(((byte)(120)))));
+            this.thunderCheckBox1.Checked = false;
+            this.thunderCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.thunderCheckBox1.ForeColor = System.Drawing.Color.White;
+            this.thunderCheckBox1.Location = new System.Drawing.Point(12, 235);
+            this.thunderCheckBox1.Name = "thunderCheckBox1";
+            this.thunderCheckBox1.Size = new System.Drawing.Size(170, 16);
+            this.thunderCheckBox1.TabIndex = 3;
+            this.thunderCheckBox1.Text = "Kullanıcı adını hatırla";
             // 
             // dungeonHeaderLabel1
             // 
@@ -162,17 +112,44 @@
             this.txtUsername.Size = new System.Drawing.Size(170, 20);
             this.txtUsername.TabIndex = 0;
             // 
-            // thunderCheckBox1
+            // nightControlBox1
             // 
-            this.thunderCheckBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(59)))), ((int)(((byte)(120)))));
-            this.thunderCheckBox1.Checked = false;
-            this.thunderCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.thunderCheckBox1.ForeColor = System.Drawing.Color.White;
-            this.thunderCheckBox1.Location = new System.Drawing.Point(12, 235);
-            this.thunderCheckBox1.Name = "thunderCheckBox1";
-            this.thunderCheckBox1.Size = new System.Drawing.Size(170, 16);
-            this.thunderCheckBox1.TabIndex = 3;
-            this.thunderCheckBox1.Text = "Kullanıcı adını hatırla";
+            this.nightControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nightControlBox1.BackColor = System.Drawing.Color.Transparent;
+            this.nightControlBox1.CloseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.nightControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nightControlBox1.DefaultLocation = true;
+            this.nightControlBox1.DisableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.nightControlBox1.DisableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.nightControlBox1.EnableCloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.EnableMaximizeButton = false;
+            this.nightControlBox1.EnableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.EnableMinimizeButton = true;
+            this.nightControlBox1.EnableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.Location = new System.Drawing.Point(645, -1);
+            this.nightControlBox1.MaximizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.nightControlBox1.MaximizeHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.MinimizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.nightControlBox1.MinimizeHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.Name = "nightControlBox1";
+            this.nightControlBox1.Size = new System.Drawing.Size(139, 31);
+            this.nightControlBox1.TabIndex = 2;
+            // 
+            // loginBtn
+            // 
+            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.loginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(187)))), ((int)(((byte)(240)))));
+            this.loginBtn.Image = null;
+            this.loginBtn.Location = new System.Drawing.Point(0, 525);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(200, 56);
+            this.loginBtn.TabIndex = 4;
+            this.loginBtn.Text = "Giriş Yap";
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // Login
             // 
@@ -188,9 +165,9 @@
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.topPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,13 +175,12 @@
         #endregion
 
         private System.Windows.Forms.Panel topPanel;
-        private ReaLTaiizor.Controls.Button exitBtn;
-        private ReaLTaiizor.Controls.Button minimizeBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtUsername;
         private ReaLTaiizor.Controls.DungeonHeaderLabel dungeonHeaderLabel1;
-        private ReaLTaiizor.Controls.SpaceButton btnLogin;
         private System.Windows.Forms.PictureBox logo;
         private ReaLTaiizor.Controls.ThunderCheckBox thunderCheckBox1;
+        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
+        private ReaLTaiizor.Controls.LostButton loginBtn;
     }
 }

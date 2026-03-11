@@ -38,18 +38,7 @@ namespace launcherMC
         {
             
         }
-
-        private void exitBtn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void loginBtn_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
             if (username.Length > 3)
