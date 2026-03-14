@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.topPanel = new System.Windows.Forms.Panel();
+            this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.thunderCheckBox1 = new ReaLTaiizor.Controls.ThunderCheckBox();
+            this.loginBtn = new ReaLTaiizor.Controls.LostButton();
+            this.rememberUsername = new ReaLTaiizor.Controls.ThunderCheckBox();
             this.dungeonHeaderLabel1 = new ReaLTaiizor.Controls.DungeonHeaderLabel();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
-            this.loginBtn = new ReaLTaiizor.Controls.LostButton();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,10 +54,33 @@
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
             // 
+            // nightControlBox1
+            // 
+            this.nightControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nightControlBox1.BackColor = System.Drawing.Color.Transparent;
+            this.nightControlBox1.CloseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.nightControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nightControlBox1.DefaultLocation = true;
+            this.nightControlBox1.DisableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.nightControlBox1.DisableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.nightControlBox1.EnableCloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.EnableMaximizeButton = false;
+            this.nightControlBox1.EnableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.EnableMinimizeButton = true;
+            this.nightControlBox1.EnableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.Location = new System.Drawing.Point(645, 0);
+            this.nightControlBox1.MaximizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.nightControlBox1.MaximizeHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.MinimizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.nightControlBox1.MinimizeHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.Name = "nightControlBox1";
+            this.nightControlBox1.Size = new System.Drawing.Size(139, 31);
+            this.nightControlBox1.TabIndex = 2;
+            // 
             // logo
             // 
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.logo.Image = global::launcherMC.Properties.Resources._638548475358792693_1;
             this.logo.Location = new System.Drawing.Point(0, 0);
             this.logo.Margin = new System.Windows.Forms.Padding(0);
             this.logo.Name = "logo";
@@ -70,7 +93,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(59)))), ((int)(((byte)(120)))));
             this.panel1.Controls.Add(this.loginBtn);
-            this.panel1.Controls.Add(this.thunderCheckBox1);
+            this.panel1.Controls.Add(this.rememberUsername);
             this.panel1.Controls.Add(this.dungeonHeaderLabel1);
             this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -80,17 +103,32 @@
             this.panel1.Size = new System.Drawing.Size(200, 581);
             this.panel1.TabIndex = 1;
             // 
-            // thunderCheckBox1
+            // loginBtn
             // 
-            this.thunderCheckBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(59)))), ((int)(((byte)(120)))));
-            this.thunderCheckBox1.Checked = false;
-            this.thunderCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.thunderCheckBox1.ForeColor = System.Drawing.Color.White;
-            this.thunderCheckBox1.Location = new System.Drawing.Point(12, 235);
-            this.thunderCheckBox1.Name = "thunderCheckBox1";
-            this.thunderCheckBox1.Size = new System.Drawing.Size(170, 16);
-            this.thunderCheckBox1.TabIndex = 3;
-            this.thunderCheckBox1.Text = "Kullanıcı adını hatırla";
+            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.loginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(187)))), ((int)(((byte)(240)))));
+            this.loginBtn.Image = null;
+            this.loginBtn.Location = new System.Drawing.Point(0, 525);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(200, 56);
+            this.loginBtn.TabIndex = 4;
+            this.loginBtn.Text = "Giriş Yap";
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            // 
+            // rememberUsername
+            // 
+            this.rememberUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(59)))), ((int)(((byte)(120)))));
+            this.rememberUsername.Checked = false;
+            this.rememberUsername.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rememberUsername.ForeColor = System.Drawing.Color.White;
+            this.rememberUsername.Location = new System.Drawing.Point(12, 235);
+            this.rememberUsername.Name = "rememberUsername";
+            this.rememberUsername.Size = new System.Drawing.Size(170, 16);
+            this.rememberUsername.TabIndex = 3;
+            this.rememberUsername.Text = "Kullanıcı adını hatırla";
             // 
             // dungeonHeaderLabel1
             // 
@@ -112,45 +150,6 @@
             this.txtUsername.Size = new System.Drawing.Size(170, 20);
             this.txtUsername.TabIndex = 0;
             // 
-            // nightControlBox1
-            // 
-            this.nightControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nightControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.nightControlBox1.CloseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.nightControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
-            this.nightControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.nightControlBox1.DefaultLocation = true;
-            this.nightControlBox1.DisableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.nightControlBox1.DisableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.nightControlBox1.EnableCloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.nightControlBox1.EnableMaximizeButton = false;
-            this.nightControlBox1.EnableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.nightControlBox1.EnableMinimizeButton = true;
-            this.nightControlBox1.EnableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.nightControlBox1.Location = new System.Drawing.Point(645, -1);
-            this.nightControlBox1.MaximizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.nightControlBox1.MaximizeHoverForeColor = System.Drawing.Color.White;
-            this.nightControlBox1.MinimizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.nightControlBox1.MinimizeHoverForeColor = System.Drawing.Color.White;
-            this.nightControlBox1.Name = "nightControlBox1";
-            this.nightControlBox1.Size = new System.Drawing.Size(139, 31);
-            this.nightControlBox1.TabIndex = 2;
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.loginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.ForeColor = System.Drawing.Color.White;
-            this.loginBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(187)))), ((int)(((byte)(240)))));
-            this.loginBtn.Image = null;
-            this.loginBtn.Location = new System.Drawing.Point(0, 525);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(200, 56);
-            this.loginBtn.TabIndex = 4;
-            this.loginBtn.Text = "Giriş Yap";
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,7 +168,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -179,7 +177,7 @@
         private System.Windows.Forms.TextBox txtUsername;
         private ReaLTaiizor.Controls.DungeonHeaderLabel dungeonHeaderLabel1;
         private System.Windows.Forms.PictureBox logo;
-        private ReaLTaiizor.Controls.ThunderCheckBox thunderCheckBox1;
+        private ReaLTaiizor.Controls.ThunderCheckBox rememberUsername;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private ReaLTaiizor.Controls.LostButton loginBtn;
     }

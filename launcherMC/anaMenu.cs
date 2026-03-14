@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -58,6 +59,8 @@ namespace launcherMC
                 VersionType = "CUSTOMLAUNCHER",
                 GameLauncherName = "CUSTOMLAUNCHER"
             };
+            string directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string mcPath = Path.Combine(directory, ".corelauncher");
             var path = new MinecraftPath("C:\\Users\\Eren\\source\\repos\\launcherMC\\launcherMC\\game\\");
             var launcher = new MinecraftLauncher(path);
             //logs

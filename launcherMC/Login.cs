@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using launcherMC.Properties;
+
 namespace launcherMC
 {
     
@@ -36,10 +38,24 @@ namespace launcherMC
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
+            if (Properties.Settings.Default.username != string.Empty)
+            {
+                txtUsername.Text = Properties.Settings.Default.username;
+                rememberUsername.Checked = true;
+            }
         }
         private void loginBtn_Click(object sender, EventArgs e)
         {
+            if (rememberUsername.Checked)
+            {
+                Properties.Settings.Default.username = txtUsername.Text;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.username = "";
+                Properties.Settings.Default.Save();
+            }
             string username = txtUsername.Text;
             if (username.Length > 3)
             {

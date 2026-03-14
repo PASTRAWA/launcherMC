@@ -146,9 +146,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="game\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\638548475358792693-1.png" />
   </ItemGroup>
   <ItemGroup>
