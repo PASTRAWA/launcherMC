@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
@@ -42,80 +43,49 @@ namespace launcherMC
             }
         }
 
-
-        public async void launchMC()
+        public async void LoadVersions()
         {
-            var selectedVersion = versionCombo.SelectedValue?.ToString();
-            var launchOptions = new MLaunchOption
+            try
             {
-                Session = MSession.CreateOfflineSession(launcherSettings.USERNAME),
-                MaximumRamMb = launcherSettings.MaximumRam,
-                MinimumRamMb = launcherSettings.MinimumRam,
-                ScreenWidth = launcherSettings.Width,
-                ScreenHeight = launcherSettings.Height,
-                FullScreen = launcherSettings.fullScreen,
-                //JavaPath = launcherSettings.JavaPath,
-                //ServerIp = launcherSettings.joinServer
-                VersionType = "CUSTOMLAUNCHER",
-                GameLauncherName = "CUSTOMLAUNCHER"
-            };
-            string directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string mcPath = Path.Combine(directory, ".corelauncher");
-            var path = new MinecraftPath("C:\\Users\\Eren\\source\\repos\\launcherMC\\launcherMC\\game\\");
-            var launcher = new MinecraftLauncher(path);
-            //logs
-            launcher.FileProgressChanged += (sender, args) =>
+                var launcher = new MinecraftLauncher();
+                var versions = await launcher.GetAllVersionsAsync();
+                var releaseVersions = versions.Where(v => v.Type == "release").ToList();
+                var items = releaseVersions
+                    .Select(v => new { Name = v.Name, Display = "RELEASE : " + v.Name })
+                    .ToList();
+
+                versionCombo.DisplayMember = "Display";
+                versionCombo.ValueMember = "Name";
+                versionCombo.DataSource = items;
+                if (versionCombo.Items.Count > 0)
+                    versionCombo.SelectedIndex = 0;
+            }
+            catch
             {
-                Console.WriteLine($"Name: {args.Name}");
-                Console.WriteLine($"Type: {args.EventType}");
-                Console.WriteLine($"Total: {args.TotalTasks}");
-                Console.WriteLine($"Progressed: {args.ProgressedTasks}");
-            };
-            launcher.ByteProgressChanged += (sender, args) =>
-            {
-                Console.WriteLine($"{args.ProgressedBytes} bytes / {args.TotalBytes} bytes");
-            };
-
-            // Install
-            await launcher.InstallAsync(selectedVersion.ToString());
-
-            var process = await launcher.BuildProcessAsync(selectedVersion,launchOptions);
-
-
-            //LAUNCH
-            var processWrapper = new ProcessWrapper(process);
-
-            processWrapper.OutputReceived += (sender, log) =>
-                Console.WriteLine($"[Game] {log}");
-
-            processWrapper.StartWithEvents();
-            var exitCode = await processWrapper.WaitForExitTaskAsync();
-            Console.WriteLine($"Game exited with code: {exitCode}");
+                string mcPath = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    ".corelauncher",
+                    "versions"
+                );
+                var versions = Directory.GetDirectories(mcPath)
+                    .Select(v => Path.GetFileName(v))
+                    .ToList();
+                var items = versions
+                    .Select(v => new { Name = v, Display = "RELEASE : " + v })
+                    .ToList();
+                versionCombo.DisplayMember = "Display";
+                versionCombo.ValueMember = "Name";
+                versionCombo.DataSource = items;
+                if (versionCombo.Items.Count > 0)
+                    versionCombo.SelectedIndex = 0;
+            }
         }
-
-        public async void loadVersions()
-        {
-            var launcher = new MinecraftLauncher();
-            var versions = await launcher.GetAllVersionsAsync();
-            var releaseVersions = versions.Where(v => v.Type == "release").ToList();
-
-            // Create a lightweight list with display and value members so the combo
-            // can show "RELEASE : <name>" but SelectedValue will be just the name.
-            var items = releaseVersions
-                .Select(v => new { Name = v.Name, Display = "RELEASE : " + v.Name })
-                .ToList();
-
-            versionCombo.DisplayMember = "Display";
-            versionCombo.ValueMember = "Name";
-            versionCombo.DataSource = items;
-            if (versionCombo.Items.Count > 0)
-                versionCombo.SelectedIndex = 0;
-        }
+        
         //load
         private async void anaMenu_Load(object sender, EventArgs e)
         {
             string url = $"https://mc-heads.net/avatar/{launcherSettings.USERNAME}";
-            loadVersions();
+            LoadVersions();
             Console.WriteLine(launcherSettings.USERNAME);
             headPicture.ImageLocation = url;
             headPicture.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -124,8 +94,34 @@ namespace launcherMC
 
         private void launchBtn_Click(object sender, EventArgs e)
         {
+            if(launcherSettings.selectedVersion == null)
+            {
+                MessageBox.Show("you need to select a version to launch the game", "Error",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+            }
             Console.WriteLine("LAUNCHING MINECRAFT WITH THESE SETTINGS", launcherSettings.MaximumRam, launcherSettings.USERNAME);
-            launchMC();
+            LauncherTasks launchGame = new LauncherTasks();
+            launcherSettings.selectedVersion = versionCombo.SelectedValue?.ToString();
+            launchGame.launchMC();
+        }
+
+        private void directoryBtn_Click(object sender, EventArgs e)
+        {
+            string directory =Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string mcPath = Path.Combine(directory, ".corelauncher");
+            try
+            {
+                Process.Start(mcPath);
+            }
+            catch
+            {
+                Directory.CreateDirectory(mcPath);
+            }
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            SettingsForm FrmSettings = new SettingsForm();
+            FrmSettings.Show();
         }
     }
 }

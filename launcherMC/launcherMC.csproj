@@ -57,7 +57,7 @@
       <HintPath>..\packages\LZMA-SDK.19.0.0\lib\net20\SevenZip.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -106,15 +106,48 @@
     <Compile Include="anaMenu.Designer.cs">
       <DependentUpon>anaMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="JavaManager.cs" />
+    <Compile Include="LauncherTasks.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MinecraftFolder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="launcherSettings.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_AccountSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_AccountSettings.Designer.cs">
+      <DependentUpon>UC_AccountSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_AdvancedSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_AdvancedSettings.Designer.cs">
+      <DependentUpon>UC_AdvancedSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_GameSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_GameSettings.Designer.cs">
+      <DependentUpon>UC_GameSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_LauncherSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_LauncherSettings.Designer.cs">
+      <DependentUpon>UC_LauncherSettings.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="anaMenu.resx">
       <DependentUpon>anaMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +164,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_AccountSettings.resx">
+      <DependentUpon>UC_AccountSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_AdvancedSettings.resx">
+      <DependentUpon>UC_AdvancedSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_GameSettings.resx">
+      <DependentUpon>UC_GameSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_LauncherSettings.resx">
+      <DependentUpon>UC_LauncherSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
